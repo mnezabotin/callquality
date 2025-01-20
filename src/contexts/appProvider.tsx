@@ -1,5 +1,5 @@
 import { createContext, useCallback, useState } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { Auth } from '@/pages'
 
 const TOKEN_STORAGE_KEY = 'callquality_token'
@@ -54,8 +54,8 @@ export const AppProvider = ({
         </>
       ) : (
         <Routes>
-          <Route path='/auth' element={<Auth />} />
-          <Route path='*' element={<Navigate to='/auth' replace />} />
+          <Route path='/' element={<Auth />} />
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Routes>
       )}
     </appContext.Provider>
