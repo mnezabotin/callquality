@@ -10,5 +10,5 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  base: '/callquality',
+  base: '/mnezabotin.github.io',
 })
