@@ -3,6 +3,7 @@ import { AppContextType, appContext } from '@/contexts';
 import { Box, Flex } from '@/styles';
 import { Input, Button, Form, Card } from 'antd'
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type FieldType = {
   login?: string
@@ -11,6 +12,7 @@ type FieldType = {
 
 export const Auth = (): JSX.Element => {
   const [form] = Form.useForm()
+  const navigate= useNavigate()
 
   const { setToken } = useContext(appContext) as AppContextType
 
@@ -37,6 +39,7 @@ export const Auth = (): JSX.Element => {
               if (values.login === 'maxim' && values.password === '143') {
                 const token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2)
                 setToken(token)
+                navigate('/')
               } else {
                 form.setFields([
                   {

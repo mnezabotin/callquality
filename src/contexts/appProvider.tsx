@@ -53,12 +53,10 @@ export const AppProvider = ({
           {children}
         </>
       ) : (
-        <BrowserRouter>
-          <Routes>
-            <Route path='/auth' element={<Auth />} />
-            <Route path='*' element={<Navigate to='/auth' replace />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route path='/auth' element={<Auth />} />
+          <Route path='*' element={<Navigate to='/auth' replace />} />
+        </Routes>
       )}
     </appContext.Provider>
   )
