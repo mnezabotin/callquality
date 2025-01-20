@@ -10,7 +10,7 @@ type Props = {
 }
 
 const StyledTable = styled(Table)`
-  .ant-table { 
+  .ant-table {
     .ant-table-thead {
       position: sticky;
       top: 0;
@@ -32,6 +32,7 @@ export const ReportsTable = ({
       pagination={false}
       locale={{ emptyText: <Empty description='Отчеты отсутсвуют' image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
       loading={isFetching}
+      // scroll={{ y: 55 * 5 }}
     >
       <Column title="Клиент" dataIndex="client" key="client" />
       <Column title="Продолжительность звонка" dataIndex="duration" key="duration" />
@@ -39,7 +40,7 @@ export const ReportsTable = ({
       <Column
         title="Качество звонка"
         key="rating"
-        render={(_, record: DataType) => (
+        render={(_, record) => (
           <Rate value={record?.rating || 0} disabled />
         )}
       />
@@ -66,7 +67,7 @@ export const ReportsTable = ({
       <Column
         title="Дата звонка"
         key="date"
-        render={(_, record: DataType) => record?.date?.toLocaleDateString()}
+        render={(_, record) => record?.date?.toLocaleDateString()}
       />
     </StyledTable>
   )

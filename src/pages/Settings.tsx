@@ -1,38 +1,36 @@
-import { Flex, Skeleton, Space } from 'antd'
-import { PieChartFilled } from '@ant-design/icons'
+import { Button, Flex, Space, Switch } from 'antd'
+import { useContext } from 'react'
+import { AppContextType, appContext } from '@/contexts'
 
 export const Settings = (): JSX.Element => {
+  const { theme, setTheme, setToken } = useContext(appContext) as AppContextType
+
   return (
-    <>
-      <Skeleton />
-      <Skeleton />
-      <Flex gap="middle" vertical>
-        <Space wrap>
-          <Skeleton.Button />
-          <Skeleton.Avatar  />
-          <Skeleton.Input />
-        </Space>
-        <Skeleton.Input />
-        <Space wrap>
-          <Skeleton.Image />
-          <Skeleton.Node style={{ width: 160 }} />
-          <Skeleton.Node>
-            <PieChartFilled style={{ fontSize: 40, color: '#bfbfbf' }} />
-          </Skeleton.Node>
-          <Skeleton.Image />
-          <Skeleton.Node style={{ width: 160 }} />
-          <Skeleton.Node>
-            <PieChartFilled style={{ fontSize: 40, color: '#bfbfbf' }} />
-          </Skeleton.Node>
-          <Skeleton.Image />
-          <Skeleton.Node style={{ width: 160 }} />
-          <Skeleton.Node>
-            <PieChartFilled style={{ fontSize: 40, color: '#bfbfbf' }} />
-          </Skeleton.Node>
-        </Space>
+    <Flex vertical gap={24}>
+      <Flex align='center' gap={16}>
+        <Switch
+          value={theme === 'dark'}
+          onChange={(value) => setTheme(value ? 'dark' : 'light')}
+        />
+        <span>Темная тема</span>
       </Flex>
-      <Skeleton />
-      <Skeleton />
-    </>
+      <Space>
+        <Button
+          color="primary"
+          variant="filled"
+        >
+          Сбросить пароль
+        </Button>
+      </Space>
+      <Space>
+        <Button
+          color="danger"
+          variant="filled"
+          onClick={() => setToken('')}
+        >
+          Выйти
+        </Button>
+      </Space>
+    </Flex>
   )
 }

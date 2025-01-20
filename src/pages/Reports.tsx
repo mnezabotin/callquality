@@ -1,6 +1,6 @@
 import { ReportsTable, ReportsFilter } from '@/components'
 import { useQueryReports } from "@/queries";
-import { Box, Flex } from '@/styles';
+import { Flex } from '@/styles';
 import { Pagination } from 'antd';
 import { useEffect, useState } from 'react';
 
