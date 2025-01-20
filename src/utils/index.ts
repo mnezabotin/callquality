@@ -3,6 +3,7 @@ import { Random } from './random'
 import { maleNames } from './names'
 import { tags } from './tags'
 
+// @ts-ignore
 const generateReport = (i, j, date, random) => {
   const allTags = [...tags]
   const reportTags = []
@@ -69,8 +70,11 @@ export const generateReports = (filter: ReportsFilter, page: number): Promise<{ 
           r.date.getMonth(),
           r.date.getDate())
            >= new Date(
+            // @ts-ignore
             filter.start.getFullYear(),
+            // @ts-ignore
             filter.start.getMonth(),
+            // @ts-ignore
             filter.start.getDate()
           )
         )
@@ -83,8 +87,11 @@ export const generateReports = (filter: ReportsFilter, page: number): Promise<{ 
             r.date.getMonth(),
             r.date.getDate()
           ) <= new Date(
+            // @ts-ignore
             filter.end.getFullYear(),
+            // @ts-ignore
             filter.end.getMonth(),
+            // @ts-ignore
             filter.end.getDate()
           )
         )

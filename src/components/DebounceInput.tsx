@@ -6,6 +6,7 @@ type Props = InputProps & { onChange: (value: string) => void }
 
 export const DebounceInput = (props: Props): JSX.Element => {
   const [input, setInput] = useState(props.value)
+  // @ts-ignore
   const debouncedValue = useDebounce(input, input ? 400 : 0)
 
   useEffect(() => {

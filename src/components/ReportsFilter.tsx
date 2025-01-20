@@ -30,9 +30,12 @@ export const ReportsFilter = ({
   const onFilter = (name: string, value: string | Date | null | number) => {
     const newFilter = { ...filter }
     if (name === 'range') {
+      // @ts-ignore
       newFilter['start'] = value ? value[0]?.$d : null
+      // @ts-ignore
       newFilter['end'] = value ? value[1].$d : null
     } else {
+      // @ts-ignore
       newFilter[name] = value
     }
     setFilter(newFilter)
@@ -60,15 +63,21 @@ export const ReportsFilter = ({
             <DebounceInput
               placeholder='Клиент'
               value={filter.client}
+              // @ts-ignore
               onChange={(value) => onFilter('client', value)}
             />
             <DebounceInput
               placeholder='Оператор'
               value={filter.operator}
+              // @ts-ignore
               onChange={(value) => onFilter('operator', value)}
             />
             <Rate value={filter.rating} onChange={(value) => onFilter('rating', value)} />
-            <RangePicker placeholder={['Отчеты с', 'Отчеты по']} onChange={(value) => onFilter('range', value)} />
+            <RangePicker
+              placeholder={['Отчеты с', 'Отчеты по']}
+              // @ts-ignore
+              onChange={(value) => onFilter('range', value)}
+            />
           </Space>
         </Box>
       )}
