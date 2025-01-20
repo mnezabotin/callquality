@@ -1,9 +1,11 @@
 import { Button, Flex, Space, Switch } from 'antd'
 import { useContext } from 'react'
 import { AppContextType, appContext } from '@/contexts'
+import { useNavigate } from 'react-router-dom'
 
 export const Settings = (): JSX.Element => {
   const { theme, setTheme, setToken } = useContext(appContext) as AppContextType
+  const navigate= useNavigate()
 
   return (
     <Flex vertical gap={24}>
@@ -26,7 +28,10 @@ export const Settings = (): JSX.Element => {
         <Button
           color="danger"
           variant="filled"
-          onClick={() => setToken('')}
+          onClick={() => {
+            navigate('/')
+            setToken('')
+          }}
         >
           Выйти
         </Button>
